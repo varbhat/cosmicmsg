@@ -1,0 +1,33 @@
+[package]
+name = "cosmicmsg"
+version = "0.1.0"
+edition = "2021"
+description = "CLI tool and library for querying and controlling the COSMIC desktop"
+license = "MIT"
+repository = "https://github.com/user/cosmicmsg"
+
+[[bin]]
+name = "cosmicmsg"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+png = "0.17"
+
+ashpd = { version = "0.13", features = ["remote_desktop", "screencast", "tokio"] }
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "time"] }
+anyhow = "1"
+rmcp = { version = "3", features = ["server", "transport-io", "schemars"] }
+schemars = "1"
+base64 = "0.22"
+reis = { version = "0.7", features = ["tokio"] }
+enumflags2 = "0.7"
+futures-util = { version = "0.3", default-features = false, features = ["async-await"] }
+
+cosmic-client-toolkit = "0.2"
+cosmic-protocols = { version = "0.2", default-features = false, features = ["client"] }
+smithay-client-toolkit = "0.20"
+wayland-client = "0.31"
+wayland-protocols = { version = "0.32", features = ["client", "staging"] }
